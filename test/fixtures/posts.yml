@@ -4,8 +4,16 @@ one:
   title: MyString
   body: MyText
   published: false
+  categories: one, two
 
-two:
+with_categories:
   title: MyString
   body: MyText
   published: false
+  categories: one, two
+
+without_categories:
+  title: MyString
+  body: MyText
+  published: false
+  categories: 

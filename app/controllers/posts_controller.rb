@@ -1,9 +1,5 @@
 class PostsController < AuthenticatedController
   
-  before_filter :only => [:create, :update] do
-    
-  end
-  
   # GET /posts
   # GET /posts.xml
   def index
@@ -63,7 +59,7 @@ class PostsController < AuthenticatedController
   # PUT /posts/1
   # PUT /posts/1.xml
   def update
-    params[:post][:category_ids] ||= []
+    params[:post][:category_ids] ||= [] # Array may be non-existent when all checkboxes are deselected
     @post = Post.find(params[:id])
 
     respond_to do |format|

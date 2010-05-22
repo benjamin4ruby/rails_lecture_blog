@@ -1,7 +1,18 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionController::TestCase
+  
+  def setup
+    login    
+  end
+  
+  def teardown
+    logout
+  end
+  
+  
   test "should get index" do
+    
     get :index
     assert_response :success
     assert_not_nil assigns(:posts)
@@ -42,4 +53,10 @@ class PostsControllerTest < ActionController::TestCase
 
     assert_redirected_to posts_path
   end
+  
+  test "fixture should have categories" do
+    assert_equal 2, posts(:one).category_ids.length
+    assert_equal 0, posts(:three).category_ids.length
+  end
+  
 end

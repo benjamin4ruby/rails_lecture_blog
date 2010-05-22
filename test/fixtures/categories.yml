@@ -1,9 +1,19 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  title: MyString
-  description: MyText
+  title: 1st Category
+  description: This is a good category.
 
 two:
-  title: MyString
-  description: MyText
+  title: 2nd
+  description: This is a bad category.
+
+three:
+  title: 3rd
+  description: This is a good category.
+
+<% 4.upto(20) do |i| %>
+number<%= i %>:
+  title: <%= i %>th
+  description: This is a <%= i % 2 == 0 ? 'bad' : 'good' %> category. 
+<% end %>
