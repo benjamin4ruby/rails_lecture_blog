@@ -5,6 +5,7 @@
     <th>Title</th>
     <th>Body</th>
     <th>Published</th>
+	<th>Categories</th>
   </tr>
 
 <% @posts.each do |post| %>
@@ -12,6 +13,7 @@
     <td><%=h post.title %></td>
     <td><%=h post.body %></td>
     <td><%=h post.published %></td>
+	<td><%=h post.categories_s %></td>
     <td><%= link_to 'Show', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
     <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>

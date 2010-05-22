@@ -1,6 +1,7 @@
 module BlogHelper
   def comment_form_id(post)
-    "comment_form_id_#{post.id}"
+    post = post.id if post.is_a? Post
+    "comment_form_id_#{post}"
   end
   
   def post_comments_id(post_id)

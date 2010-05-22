@@ -16,6 +16,14 @@
     <%= f.check_box :published %>
   </p>
   <p>
+  	Categories<br />
+	<% @all_categories.each do |category| %>
+		<%= check_box_tag 'post[category_ids][]', category.id, @post.has_category?(category) %>
+		<%=h category.title %><br />
+	<% end %>
+	<%#= hidden_field_tag 'post[category_ids][]', 0 %>
+  </p>
+  <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>

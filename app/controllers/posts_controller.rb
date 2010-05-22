@@ -1,5 +1,9 @@
 class PostsController < AuthenticatedController
   
+  before_filter :only => [:create, :update] do
+    
+  end
+  
   # GET /posts
   # GET /posts.xml
   def index
@@ -36,6 +40,7 @@ class PostsController < AuthenticatedController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    @all_categories = Category.all
   end
 
   # POST /posts
@@ -58,6 +63,7 @@ class PostsController < AuthenticatedController
   # PUT /posts/1
   # PUT /posts/1.xml
   def update
+    params[:post][:category_ids] ||= []
     @post = Post.find(params[:id])
 
     respond_to do |format|

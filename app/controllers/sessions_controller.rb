@@ -8,8 +8,8 @@ class SessionsController < AuthenticatedController
   
   # Perform login
   def create
-    if params[:username] == "peter" && params[:password] == "test"
-      session[:user] = true        
+    if params[:username] == "1" && params[:password] == "1"
+      session[:user] = true
       redirect_to posts_path
     else
       flash[:notice] = "Das war nix!"

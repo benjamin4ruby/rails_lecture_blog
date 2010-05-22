@@ -1,3 +1,7 @@
-comment_id = post_comments_id(@post_id)
-page.insert_html :bottom, comment_id, :partial => 'blog/comment', :locals => {:comment => @comment}
-page.select("##{comment_id} li").last.visual_effect :highlight
+css_id_comment = post_comments_id(@post_id)
+css_id_comment_form = comment_form_id(@post_id)
+
+page.insert_html :bottom, css_id_comment, :partial => 'blog/comment', :locals => {:comment => @comment}
+page.select("##{css_id_comment} li:last-child").first.visual_effect :highlight
+page[css_id_comment_form].visual_effect :fold
+page[css_id_comment_form].select("form").invoke :reset
